@@ -1,4 +1,7 @@
 # UBOOK APP
+
+[![Build Status](https://travis-ci.com/fromdenisvieira/ubook-web-reactjs.svg?branch=master)](https://travis-ci.com/fromdenisvieira/ubook-web-reactjs)
+
 App to manage personal contacts on web .
 
 - App available at:  [https://ubookapp.herokuapp.com](https://ubookapp.herokuapp.com)
