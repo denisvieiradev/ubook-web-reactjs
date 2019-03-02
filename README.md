@@ -1,7 +1,7 @@
-# CONTACTS SCHEDULE APP
-App to personal contacts on web .
+# UBOOK APP
+App to manage personal contacts on web .
 
-- App available at:  [https://contactsschedule.herokuapp.com](https://c-news.herokuapp.com)
+- App available at:  [https://ubookapp.herokuapp.com](https://ubookapp.herokuapp.com)
 
 ## Available Scripts
 
