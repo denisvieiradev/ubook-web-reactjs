@@ -5,7 +5,6 @@ import injectSheet from "react-jss";
 
 const MainHeader = ({
   classes,
-  contact,
 }) => (
     <div >
       <label>TESTE</label>

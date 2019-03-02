@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import * as HomeActions from "./HomeActions";
-import ContactItem from "./components/ContactItem";
+import ContactList from "./components/ContactList";
 import injectSheet from "react-jss";
 import MainHeader from "../../components/MainHeader"
 import { ClipLoader } from "react-spinners";
@@ -26,9 +26,9 @@ class Home extends PureComponent {
             <ClipLoader sizeUnit={"px"} size={50} color={Colors.gray} loading />
           </div>
         ) : (
-          <div className={classes.newsContainer}>
-
-          </div>
+          <ContactList 
+            contacts={contacts}
+          />
         )}
       </div>
     );

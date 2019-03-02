@@ -20,7 +20,8 @@ const styles = {
   },
   logoStyle: {
     width: "9.188em",
-    height: "2em"
+    height: "2em",
+    marginLeft: "1em"
   },
   searchFieldStyle: {
     flex: 3,
