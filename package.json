@@ -1,6 +1,6 @@
 {
-  "name": "contacts-schedule-reactjs",
-  "version": "0.1.0",
+  "name": "ubook-web-reactjs",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "firebase": "^5.8.4",

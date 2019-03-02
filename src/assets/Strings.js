@@ -7,6 +7,6 @@ let Strings = new LocalizedStrings({
   pt: portugueseStrings
 });
 
-Strings.setLanguage("en");
+Strings.setLanguage("pt");
 
 export default Strings;

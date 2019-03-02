@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import * as HomeActions from "./HomeActions";
 import ContactItem from "./components/ContactItem";
 import injectSheet from "react-jss";
-
+import MainHeader from "../../components/MainHeader"
 import { ClipLoader } from "react-spinners";
 import Colors from "../../assets/Colors";
+
 
 class Home extends PureComponent {
 
@@ -18,7 +19,8 @@ class Home extends PureComponent {
 
     return (
       <div>
-        <p>TESTEEE</p>
+        <MainHeader />
+        
         {isFetchingContacts ? (
           <div className={classes.spinnerContainerStyle}>
             <ClipLoader sizeUnit={"px"} size={50} color={Colors.gray} loading />
