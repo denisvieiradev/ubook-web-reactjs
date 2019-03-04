@@ -1,7 +1,7 @@
 import React from "react";
-import Colors from "../../../assets/Colors";
-import Strings from "../../../assets/Strings";
-import Button from "../../../components/Button"
+import Colors from "../assets/Colors";
+import Strings from "../assets/Strings";
+import Button from "./Button"
 import injectSheet from "react-jss";
 
 const AddContactButton = ({ classes, text, styles }) => (

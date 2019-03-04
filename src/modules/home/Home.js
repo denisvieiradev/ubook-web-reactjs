@@ -27,6 +27,7 @@ class Home extends PureComponent {
           </div>
         ) : (
           <ContactList 
+            styles={styles.contactListStyle}
             contacts={contacts}
           />
         )}
@@ -45,6 +46,11 @@ const styles = {
     marginTop: "5em",
     alignItems: "center",
     justifyContent: "center"
+  },
+  contactListStyle: {
+    marginLeft: "1em",
+    marginRight: "1em",
+    marginTop: "2em"
   }
 };
 

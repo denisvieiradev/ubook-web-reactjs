@@ -2,10 +2,14 @@ import React from "react";
 import injectSheet from "react-jss";
 import { ubookLogo } from "../assets/Images";
 import SearchField from "./SearchField"
+import AddContactButton from "./AddContactButton";
 
-const MainHeader = ({ classes }) => (
+const MainHeader = ({ classes, hasContacts }) => (
   <div className={classes.mainHeaderContainer}>
     <img className={classes.logoStyle} src={ubookLogo} alt="Ubook" />
+    <div>
+      <AddContactButton />
+    </div>
     <SearchField 
       style={styles.searchFieldStyle} 
       onChange={() => console.log("teste")}/>
@@ -16,17 +20,16 @@ const styles = {
   mainHeaderContainer: {
     display: "flex",
     flexDirection: "horizontal",
-    marginTop: "1em"
+    marginTop: "1em",
+    marginLeft: "1em"
   },
   logoStyle: {
     width: "9.188em",
     height: "2em",
-    marginLeft: "1em"
   },
   searchFieldStyle: {
-    flex: 3,
-    marginLeft: "14.250em",
-    marginRight: "1em"
+    flex: 2,
+    marginLeft: "14.250em"
   }
 };
 

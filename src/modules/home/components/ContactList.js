@@ -3,7 +3,8 @@ import injectSheet from "react-jss";
 import { emptyBookImg} from "../../../assets/Images";
 import Colors from "../../../assets/Colors";
 import ContactItem from "./ContactItem"
-import AddContactButton from "./AddContactButton"
+import AddContactButton from "../../../components/AddContactButton"
+import ContactListHeader from "./ContactListHeader"
 
 class ContactList extends PureComponent {
 
@@ -11,11 +12,12 @@ class ContactList extends PureComponent {
     const { contacts, classes } = this.props;
 
     return (
-      <div>
+      <div className={classes.mainContainerStyle}>
+        <ContactListHeader />
         {contacts && contacts.length !== 0 ? (
           <div className={classes.contactsContainer}>
             {contacts.map((item, index) => (
-              <ContactItem contact={item} />
+              <ContactItem contact={item} key={index}/>
             ))}
           </div>
         ) : (
@@ -37,6 +39,10 @@ class ContactList extends PureComponent {
 }
 
 const styles = {
+  mainContainerStyle: props => ({
+    ...props.styles,
+
+  }),
   addContactButtonStyle: {
     marginTop: "1.5em"
   },
