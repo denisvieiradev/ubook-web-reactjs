@@ -15,7 +15,10 @@ const styles = {
     ...props.styles,
     color: props.textColor,
     backgroundColor: props.color,
-    padding: "0.750em",
+    paddingLeft: "1.143em",
+    paddingRight: "1.143em",
+    paddingTop: "0.571em",
+    paddingBottom: "0.571em",
     borderRadius: "1.250em",
     boxShadow: "0 0.125em 0.250em 0 rgba(0, 0, 0, 0.16)",
     border: "solid 1px rgba(255, 255, 255, 0.16)",
@@ -25,6 +28,7 @@ const styles = {
     fontStretch: "normal",
     lineHeight: "normal",
     letterSpacing: "normal",
+    cursor: "pointer"
   })
 };
 

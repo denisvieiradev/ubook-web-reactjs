@@ -10,8 +10,22 @@ import Colors from "../../assets/Colors";
 
 class Home extends PureComponent {
 
+  state = {
+    hasContacts: false,
+  };
+
   componentWillMount() {
     this.props.loadContacts();
+  }
+
+  componentWillReceiveProps({contacts}) {
+    console.log("length contacts",contacts.length)
+    console.log("contacts",contacts)
+    if (contacts && contacts.length > 0) {
+      this.setState({ hasContacts: true})
+    } else {
+      this.setState({ hasContacts: false })
+    }
   }
 
   render() {
@@ -19,7 +33,7 @@ class Home extends PureComponent {
 
     return (
       <div>
-        <MainHeader />
+        <MainHeader hasContacts={this.state.hasContacts}/>
         
         {isFetchingContacts ? (
           <div className={classes.spinnerContainerStyle}>

@@ -7,8 +7,10 @@ import AddContactButton from "./AddContactButton";
 const MainHeader = ({ classes, hasContacts }) => (
   <div className={classes.mainHeaderContainer}>
     <img className={classes.logoStyle} src={ubookLogo} alt="Ubook" />
-    <div>
-      <AddContactButton />
+    <div className={classes.addContactContainer}>
+      {
+        hasContacts ? <AddContactButton styles={styles.addContactBtnStyle} /> : null 
+      }
     </div>
     <SearchField 
       style={styles.searchFieldStyle} 
@@ -17,6 +19,14 @@ const MainHeader = ({ classes, hasContacts }) => (
 );
 
 const styles = {
+  addContactBtnStyle: {
+    marginLeft: "3em",
+  },
+  addContactContainer: {
+    display: "flex",
+    flex: 1,
+    justifyContent: "center"
+  },
   mainHeaderContainer: {
     display: "flex",
     flexDirection: "horizontal",
@@ -25,11 +35,10 @@ const styles = {
   },
   logoStyle: {
     width: "9.188em",
-    height: "2em",
+    height: "2em"
   },
   searchFieldStyle: {
-    flex: 2,
-    marginLeft: "14.250em"
+    flex: 3
   }
 };
 

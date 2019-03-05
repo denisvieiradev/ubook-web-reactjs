@@ -13,12 +13,15 @@ class ContactList extends PureComponent {
 
     return (
       <div className={classes.mainContainerStyle}>
-        <ContactListHeader />
+        
         {contacts && contacts.length !== 0 ? (
-          <div className={classes.contactsContainer}>
-            {contacts.map((item, index) => (
-              <ContactItem contact={item} key={index}/>
-            ))}
+          <div>
+            <ContactListHeader />
+            <div className={classes.contactsContainer}>
+              {contacts.map((item, index) => (
+                <ContactItem contact={item} key={index}/>
+              ))}
+            </div>
           </div>
         ) : (
             <div className={classes.noneContactContainer}>
