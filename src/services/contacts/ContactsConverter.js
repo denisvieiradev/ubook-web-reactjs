@@ -9,21 +9,15 @@ class NewsConverter {
 
   mapperResponseToEntity(response) {
     const {
-      author_image_url,
-      author_name,
-      image_url,
-      categories,
-      description,
-      title
+      name,
+      phone_number,
+      email
     } = response;
 
-    const entity = {
-      authorImageUrl: author_image_url,
-      authorName: author_name,
-      imageUrl: image_url,
-      categories,
-      description,
-      title
+    const entity = { 
+      name,
+      email,
+      phoneNumber: phone_number
     };
 
     return entity;

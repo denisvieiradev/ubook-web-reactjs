@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import * as HomeActions from "./HomeActions";
-import ContactItem from "./components/ContactItem";
+import ContactList from "./components/ContactList";
 import injectSheet from "react-jss";
 import MainHeader from "../../components/MainHeader"
 import { ClipLoader } from "react-spinners";
@@ -10,8 +10,22 @@ import Colors from "../../assets/Colors";
 
 class Home extends PureComponent {
 
+  state = {
+    hasContacts: false,
+  };
+
   componentWillMount() {
     this.props.loadContacts();
+  }
+
+  componentWillReceiveProps({contacts}) {
+    console.log("length contacts",contacts.length)
+    console.log("contacts",contacts)
+    if (contacts && contacts.length > 0) {
+      this.setState({ hasContacts: true})
+    } else {
+      this.setState({ hasContacts: false })
+    }
   }
 
   render() {
@@ -19,16 +33,17 @@ class Home extends PureComponent {
 
     return (
       <div>
-        <MainHeader />
+        <MainHeader hasContacts={this.state.hasContacts}/>
         
         {isFetchingContacts ? (
           <div className={classes.spinnerContainerStyle}>
             <ClipLoader sizeUnit={"px"} size={50} color={Colors.gray} loading />
           </div>
         ) : (
-          <div className={classes.newsContainer}>
-
-          </div>
+          <ContactList 
+            styles={styles.contactListStyle}
+            contacts={contacts}
+          />
         )}
       </div>
     );
@@ -45,6 +60,11 @@ const styles = {
     marginTop: "5em",
     alignItems: "center",
     justifyContent: "center"
+  },
+  contactListStyle: {
+    marginLeft: "1em",
+    marginRight: "1em",
+    marginTop: "2em"
   }
 };
 
