@@ -1,11 +1,11 @@
 import React from "react";
-import Colors from "../assets/Colors";
 import injectSheet from "react-jss";
 
-const Button = ({ classes, text, type, textColor, color,  }) => (
+const Button = ({ classes, text, type, onClick }) => (
   <button 
     className={classes.buttonStyle} 
-    type={type}>
+    type={type}
+    onClick={() => onClick()}>
     {text}
   </button>
 );
