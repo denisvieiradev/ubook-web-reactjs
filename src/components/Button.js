@@ -2,10 +2,11 @@ import React from "react";
 import injectSheet from "react-jss";
 
 const Button = ({ classes, text, type, onClick }) => (
-  <button 
-    className={classes.buttonStyle} 
+  <button
+    className={classes.buttonStyle}
     type={type}
-    onClick={() => onClick()}>
+    onClick={() => onClick && onClick()}
+  >
     {text}
   </button>
 );

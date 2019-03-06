@@ -8,7 +8,7 @@ import AddContactModal from "./AddContactModal"
 class AddContactButton extends PureComponent {
   
   state = {
-    modalIsOpen: false
+    modalIsOpen: true
   };
 
   showAddContactModal() {

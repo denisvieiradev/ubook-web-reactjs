@@ -4,6 +4,7 @@ export default {
   black: "#000000",
   gray: "#9198af",
   blue: "#4990E2",
+  bigLightBlue: "#c0c3d2",
   red: "#D0021B",
   pink: "#BD10E0",
   green: "#7CBB37",
