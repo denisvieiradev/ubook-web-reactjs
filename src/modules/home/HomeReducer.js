@@ -3,7 +3,7 @@ import {
   IS_FETCHING_CONTACTS, 
   IS_CREATING_CONTACT, 
   CONTACT_WAS_ADDED
-} from "./HomeTypes";
+} from "./HomeTypes"
 
 export const INITIAL_STATE = {
   contacts: [],
@@ -20,7 +20,8 @@ export default (state = INITIAL_STATE, action) => {
     case IS_CREATING_CONTACT:
       return { ...state, isCreatingContact: action.payload };
     case CONTACT_WAS_ADDED:
-      return { ...state, contactWasAdded: action.payload };
+      const newContacts = [...state.contacts.concat(action.payload)]
+      return { ...state, contactWasAdded: action.payload, contacts: newContacts };
     default:
       return state;
   }

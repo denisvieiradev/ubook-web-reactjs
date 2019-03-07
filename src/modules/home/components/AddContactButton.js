@@ -10,13 +10,12 @@ import AddContactModal from "./AddContactModal"
 class AddContactButton extends PureComponent {
   
   state = {
-    modalIsOpen: true
+    modalIsOpen: false
   };
 
   componentWillReceiveProps(props) {
     if (props.contactWasAdded){
       this.hideAddContactModal()
-      this.props.cleanContactWasAdded()
     }
   }
 
@@ -61,7 +60,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  cleanContactWasAdded: HomeActions.cleanContactWasAdded
 };
 
 export default connect(

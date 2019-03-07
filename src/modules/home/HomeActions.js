@@ -39,6 +39,7 @@ export const loadContacts = () => {
     dispatch(isFetchingContacts(true));
 
     const contacts = await new ContactsService().getContacts();
+    console.log(contacts)
 
     dispatch(updateContacts(contacts));
     dispatch(isFetchingContacts(false));
@@ -51,9 +52,8 @@ export const createContact = (contact) => {
 
     const contactAdded = await new ContactsService().createContact(contact);
 
-    console.log(contactAdded);
-
     dispatch(contactWasAdded(contactAdded));
+    
     dispatch(isCreatingContact(false));
   };
 };
