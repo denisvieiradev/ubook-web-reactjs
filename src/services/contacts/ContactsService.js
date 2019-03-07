@@ -10,6 +10,11 @@ class ContactsService extends ServiceDataSource {
   getContacts() {
     return this.datasource().getContacts();
   }
+
+  createContact(contact) {
+    return this.datasource().createContact(contact);
+  }
+  
 }
 
 export default ContactsService;

@@ -2,7 +2,7 @@ import React from "react";
 import injectSheet from "react-jss";
 import { ubookLogo } from "../assets/Images";
 import SearchField from "./SearchField"
-import AddContactButton from "./AddContactButton";
+import AddContactButton from "../modules/home/components/AddContactButton";
 
 const MainHeader = ({ classes, hasContacts }) => (
   <div className={classes.mainHeaderContainer}>

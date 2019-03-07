@@ -40,6 +40,7 @@ const styles = {
     flex: 1,
     display: "flex",
     color: Colors.gray,
+    alignItems: "center",
     "&:first-child": {
       flex: 0.2,
       justifyContent: "center"

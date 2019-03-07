@@ -18,9 +18,7 @@ class Home extends PureComponent {
     this.props.loadContacts();
   }
 
-  componentWillReceiveProps({contacts}) {
-    console.log("length contacts",contacts.length)
-    console.log("contacts",contacts)
+  componentWillReceiveProps({contacts}) { 
     if (contacts && contacts.length > 0) {
       this.setState({ hasContacts: true})
     } else {

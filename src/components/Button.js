@@ -1,12 +1,18 @@
 import React from "react";
-import Colors from "../assets/Colors";
 import injectSheet from "react-jss";
+import { ClipLoader } from "react-spinners";
+import Colors from "../assets/Colors"
 
-const Button = ({ classes, text, type, textColor, color,  }) => (
-  <button 
-    className={classes.buttonStyle} 
-    type={type}>
-    {text}
+const Button = ({ classes, text, type, onClick, isLoading }) => (
+  <button
+    className={classes.buttonStyle}
+    type={type}
+    onClick={() => onClick && onClick()}
+  >
+    {isLoading ?
+      <ClipLoader sizeUnit={"px"} size={7} color={Colors.white} loading /> 
+      : text
+    }
   </button>
 );
 
@@ -15,8 +21,8 @@ const styles = {
     ...props.styles,
     color: props.textColor,
     backgroundColor: props.color,
-    paddingLeft: "1.143em",
-    paddingRight: "1.143em",
+    paddingLeft: props.isLoading ? "2.15em" : "1.143em",
+    paddingRight: props.isLoading ? "2.15em" : "1.143em",
     paddingTop: "0.571em",
     paddingBottom: "0.571em",
     borderRadius: "1.250em",
@@ -28,7 +34,8 @@ const styles = {
     fontStretch: "normal",
     lineHeight: "normal",
     letterSpacing: "normal",
-    cursor: "pointer"
+    cursor: "pointer",
+    opacity: props.isDisabled ? 0.32 : 1
   })
 };
 

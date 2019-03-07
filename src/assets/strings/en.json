@@ -1,4 +1,6 @@
 {
   "userArea": "User Area",
-  "search": "Search"
+  "search": "Search",
+  "requiredError": "This field is required",
+  "emailRequiredError": "Email is not valid"
 }

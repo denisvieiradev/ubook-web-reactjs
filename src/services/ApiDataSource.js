@@ -1,9 +1,6 @@
 import { BASE_URLS } from "./CONSTANTS";
 import firebase from "firebase/app";
 
-export const UID_LOCALSTORAGE_KEY = "uid";
-export const REFRESH_TOKEN_LOCALSTORAGE_KEY = "refresh_token";
-
 var firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,

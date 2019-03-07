@@ -3,7 +3,7 @@ import injectSheet from "react-jss";
 import { emptyBookImg} from "../../../assets/Images";
 import Colors from "../../../assets/Colors";
 import ContactItem from "./ContactItem"
-import AddContactButton from "../../../components/AddContactButton"
+import AddContactButton from "./AddContactButton"
 import ContactListHeader from "./ContactListHeader"
 
 class ContactList extends PureComponent {

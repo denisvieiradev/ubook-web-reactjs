@@ -1,4 +1,4 @@
-class NewsConverter {
+class ContactsConverter {
   mapperResponsesToEntities(responses) {
     const entities = [];
     responses.forEach(response => {
@@ -22,6 +22,22 @@ class NewsConverter {
 
     return entity;
   }
+
+  mapperEntityToRequest(entity) {
+    const {
+      name,
+      phoneNumber,
+      email
+    } = entity;
+
+    const request = { 
+      name,
+      email,
+      phone_number: phoneNumber
+    };
+
+    return request;
+  }
 }
 
-export default NewsConverter;
+export default ContactsConverter;

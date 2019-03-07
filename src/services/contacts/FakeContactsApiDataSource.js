@@ -13,6 +13,18 @@ class FakeContactsApiDataSource {
       }, 2000);
     });
   }
+
+  createContact(contact) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const contactAdded = new ContactsConverter().mapperEntityToRequest(
+          contact
+        );
+
+        resolve(contact);
+      }, 2000);
+    });
+  }
 }
 
 export default FakeContactsApiDataSource;
