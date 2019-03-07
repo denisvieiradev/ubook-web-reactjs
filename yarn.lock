@@ -8167,6 +8167,11 @@ promise-polyfill@7.1.2:
   resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-7.1.2.tgz#ab05301d8c28536301622d69227632269a70ca3b"
   integrity sha512-FuEc12/eKqqoRYIGBrUptCBRhobL19PS2U31vMNTfyck1FxPyMfgsXyW4Mav85y/ZN1hop3hOwRlUDok23oYfQ==
 
+promise-polyfill@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.1.0.tgz#30059da54d1358ce905ac581f287e184aedf995d"
+  integrity sha512-OzSf6gcCUQ01byV4BgwyUCswlaQQ6gzXc23aLQWhicvfX9kfsUiUhgt3CCQej8jDnl8/PhGF31JdHX2/MzF3WA==
+
 promise@8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/promise/-/promise-8.0.2.tgz#9dcd0672192c589477d56891271bdc27547ae9f0"
@@ -8434,6 +8439,14 @@ react-error-overlay@^5.1.3:
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.3.tgz#16fcbde75ed4dc6161dc6dc959b48e92c6ffa9ad"
   integrity sha512-GoqeM3Xadie7XUApXOjkY3Qhs8RkwB/Za4WMedBGrOKH1eTuKGyoAECff7jiVonJchOx6KZ9i8ILO5XIoHB+Tg==
+
+react-form-validator-core@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/react-form-validator-core/-/react-form-validator-core-0.6.2.tgz#60118e604eb93536e26c1f226a7c3b1f7f855375"
+  integrity sha512-36be/ynZEwjwRJ5m7at+59e27igoiAVM7x+BRBwztF4Qj02YTtkVd6OhGPVq4iAjT9Ge+4z6o9ZeQJg5QmDIkQ==
+  dependencies:
+    promise-polyfill "8.1.0"
+    react-lifecycles-compat "^3.0.2"
 
 react-is@^16.7.0, react-is@^16.8.2:
   version "16.8.3"

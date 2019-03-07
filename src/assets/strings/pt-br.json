@@ -1,4 +1,6 @@
 {
   "userArea": "Área do Usuário",
-  "search": "Buscar"
+  "search": "Buscar",
+  "requiredError": "O campo não pode estar vazio",
+  "emailRequiredError": "O Email não é válido"
 }

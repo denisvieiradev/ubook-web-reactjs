@@ -1,7 +1,9 @@
 import React, { PureComponent } from "react";
-import Colors from "../assets/Colors";
-import Strings from "../assets/Strings";
-import Button from "./Button"
+import { connect } from "react-redux";
+import * as HomeActions from "../HomeActions";
+import Colors from "../../../assets/Colors";
+import Strings from "../../../assets/Strings";
+import Button from "../../../components/Button"
 import injectSheet from "react-jss";
 import AddContactModal from "./AddContactModal"
 
@@ -10,6 +12,13 @@ class AddContactButton extends PureComponent {
   state = {
     modalIsOpen: true
   };
+
+  componentWillReceiveProps(props) {
+    if (props.contactWasAdded){
+      this.hideAddContactModal()
+      this.props.cleanContactWasAdded()
+    }
+  }
 
   showAddContactModal() {
     this.setState({ modalIsOpen: true })
@@ -47,4 +56,15 @@ const styles = {
   }),
 }
 
-export default injectSheet(styles)(AddContactButton);
+const mapStateToProps = state => ({
+  contactWasAdded: state.home.contactWasAdded
+});
+
+const mapDispatchToProps = {
+  cleanContactWasAdded: HomeActions.cleanContactWasAdded
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(injectSheet(styles)(AddContactButton));
