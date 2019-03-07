@@ -39,11 +39,13 @@ class AddContactModal extends PureComponent {
 
   updateField(fieldObject) {
     this.setState(fieldObject, async () => {
-      const formIsValid = await this.form.isFormValid();
+      if(this.form){
+        const formIsValid = await this.form.isFormValid();
 
-      this.setState({
-        submitIsDisabled: !formIsValid
-      });
+        this.setState({
+          submitIsDisabled: !formIsValid
+        });
+      }
     });
   }
 

@@ -9,12 +9,14 @@ class ContactsConverter {
 
   mapperResponseToEntity(response) {
     const {
+      id,
       name,
       phone_number,
       email
     } = response;
 
     const entity = { 
+      id,
       name,
       email,
       phoneNumber: phone_number
@@ -23,7 +25,7 @@ class ContactsConverter {
     return entity;
   }
 
-  mapperEntityToRequest(entity) {
+  mapperEntityToRequest(entity, newPostKey) {
     const {
       name,
       phoneNumber,
@@ -31,6 +33,7 @@ class ContactsConverter {
     } = entity;
 
     const request = { 
+      id: newPostKey,
       name,
       email,
       phone_number: phoneNumber
