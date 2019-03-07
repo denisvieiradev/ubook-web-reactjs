@@ -3,11 +3,12 @@ import injectSheet from "react-jss";
 import { ClipLoader } from "react-spinners";
 import Colors from "../assets/Colors"
 
-const Button = ({ classes, text, type, onClick, isLoading }) => (
+const Button = ({ classes, text, type, onClick, isLoading, isDisabled }) => (
   <button
     className={classes.buttonStyle}
     type={type}
     onClick={() => onClick && onClick()}
+    disabled={isDisabled}
   >
     {isLoading ?
       <ClipLoader sizeUnit={"px"} size={7} color={Colors.white} loading /> 

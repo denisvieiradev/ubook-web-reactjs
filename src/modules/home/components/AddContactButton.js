@@ -35,7 +35,7 @@ class AddContactButton extends PureComponent {
         <Button
           textColor={Colors.lightPink}
           color={Colors.biglightGreen}
-          text="+ Criar Contato"
+          text={Strings.createContact}
           type="button"
           onClick={() => this.showAddContactModal()}
         />
@@ -60,6 +60,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
+
 };
 
 export default connect(
