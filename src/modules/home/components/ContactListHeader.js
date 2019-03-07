@@ -6,9 +6,9 @@ import injectSheet from "react-jss";
 const ContactListHeader = ({ classes }) => (
   <div className={classes.headerContainer}>
     <label className={classes.listHeaderItem}></label>
-    <label className={classes.listHeaderItem}>Contatos</label>
-    <label className={classes.listHeaderItem}>Email</label>
-    <label className={classes.listHeaderItem}>Telefone</label>
+    <label className={classes.listHeaderItem}>{Strings.contacts}</label>
+    <label className={classes.listHeaderItem}>{Strings.email}</label>
+    <label className={classes.listHeaderItem}>{Strings.phoneNumber}</label>
     <label className={classes.listHeaderItem}></label>
   </div>
 );

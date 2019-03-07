@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import injectSheet from "react-jss";
 import { emptyBookImg} from "../../../assets/Images";
 import Colors from "../../../assets/Colors";
+import Strings from "../../../assets/Strings";
 import ContactItem from "./ContactItem"
 import AddContactButton from "./AddContactButton"
 import ContactListHeader from "./ContactListHeader"
@@ -28,9 +29,9 @@ class ContactList extends PureComponent {
             <img
               className={classes.emptyBookImgStyle}
               src={emptyBookImg}
-              alt="Nenhum contato foi criado ainda."
+              alt={Strings.noneContactCreated}
             />
-            <label className={classes.noneContactLabel}>Nenhum contato foi criado ainda.</label>
+            <label className={classes.noneContactLabel}>{Strings.noneContactCreated}</label>
             <AddContactButton 
               styles={styles.addContactButtonStyle}
             />

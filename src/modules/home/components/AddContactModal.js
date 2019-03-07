@@ -59,7 +59,7 @@ class AddContactModal extends PureComponent {
         style={styles.customStyles}
       >
         <header className={classes.addContactHeader}>
-          <label className={classes.mainTitle}>Criar Novo Contato</label>
+          <label className={classes.mainTitle}>{Strings.createANewContact}</label>
         </header>
         <ValidatorForm
           ref={node => (this.form = node)}
@@ -71,7 +71,7 @@ class AddContactModal extends PureComponent {
             <InputField
               onChange={text => this.updateField({ name: text })}
               styles={styles.addContactField}
-              title={"Nome"}
+              title={Strings.name}
               name="name"
               value={name}
               {...AddContactFormValidators.name}
@@ -81,7 +81,7 @@ class AddContactModal extends PureComponent {
               styles={styles.addContactField}
               name="email"
               value={email}
-              title={"E-mail"}
+              title={Strings.email}
               {...AddContactFormValidators.email}
             />
             <InputField
@@ -89,7 +89,7 @@ class AddContactModal extends PureComponent {
               styles={styles.addContactField}
               name="phoneNumber"
               value={phoneNumber}
-              title={"Telefone"}
+              title={Strings.phoneNumber}
               {...AddContactFormValidators.phoneNumber}
             />
           </div>
@@ -99,14 +99,14 @@ class AddContactModal extends PureComponent {
               className={classes.cancelButton}
               onClick={() => closeModal()}
             >
-              Cancelar
+              {Strings.cancel}
             </label>
             <Button
               textColor={Colors.white}
               color={Colors.lightPink}
               isDisabled={submitIsDisabled}
               isLoading={isCreatingContact}
-              text="Salvar"
+              text={Strings.save}
               type="submit"
             />
           </div>
@@ -150,11 +150,16 @@ const styles = {
   customStyles: {
     content: {
       display: "flex",
-      width: "50%",
-      height: "60%",
+      width: "30%",
+      height: "55%",
       flexDirection: "column",
       borderRadius: "1em",
-      padding: 0
+      padding: 0,
+      position: "absolute",
+      top: "25%",
+      left: "35%",
+      marginTop: "-50px",
+      marginLeft: "-50px",
     }
   }
 };

@@ -12,8 +12,8 @@ const ContactItem = ({ classes, contact }) => (
     <label className={classes.itemStyle}>{contact.email}</label>
     <label className={classes.itemStyle}>{contact.phoneNumber}</label>
     <div className={classes.itemStyle}>
-      <img className={classes.actionIconStyle} src={editIcon} alt="Edit" />
-      <img className={classes.actionIconStyle} src={deleteIcon} alt="Delete" />
+      <img className={classes.actionIconStyle} src={editIcon} alt={Strings.edit} />
+      <img className={classes.actionIconStyle} src={deleteIcon} alt={Strings.remove} />
     </div>
   </div>
 );

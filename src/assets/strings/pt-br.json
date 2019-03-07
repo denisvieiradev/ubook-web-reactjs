@@ -2,5 +2,16 @@
   "userArea": "Área do Usuário",
   "search": "Buscar",
   "requiredError": "O campo não pode estar vazio",
-  "emailRequiredError": "O Email não é válido"
+  "emailRequiredError": "O Email não é válido",
+  "createContact": "+ Criar Contato",
+  "contacts" : "Contatos",
+  "createANewContact" : "Criar Novo Contato",
+  "name": "Nome",
+  "email": "E-mail",
+  "phoneNumber": "Telefone",
+  "save": "Salvar",
+  "cancel": "Cancelar",
+  "edit": "Editar",
+  "remove": "Remover",
+  "noneContactCreated": "Nenhum contato foi criado ainda"
 }
