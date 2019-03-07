@@ -13,5 +13,6 @@
   "cancel": "Cancel",
   "edit": "Edit",
   "remove": "Remove",
-  "noneContactCreated": "No contacts have been created yet"
+  "noneContactCreated": "No contacts have been created yet",
+  "removeContactConfirmation": "Do you really want to delete the contact?"
 }
