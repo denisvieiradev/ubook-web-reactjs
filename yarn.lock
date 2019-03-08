@@ -4256,6 +4256,11 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
+format-string-by-pattern@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/format-string-by-pattern/-/format-string-by-pattern-1.1.1.tgz#db15665983df90a117a12b42207aa8b213e088af"
+  integrity sha512-iMhINdUh3WzZ0lCtFpIJnbwmKRGliJ/xhhhB+ORcVgFuyMe2fub6AKl6hJsttAwpTEfLFVWUXn4ZOtknejMAWw==
+
 forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"

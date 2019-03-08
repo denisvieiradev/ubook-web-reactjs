@@ -9,6 +9,7 @@ import Button from "../../../components/Button";
 import InputField from "../../../components/InputField";
 import { ValidatorForm } from "react-form-validator-core";
 import { AddContactFormValidators } from "../HomeTypes";
+import formatStringByPattern from "format-string-by-pattern";
 
 class SaveContactModal extends PureComponent {
 
@@ -80,6 +81,12 @@ class SaveContactModal extends PureComponent {
     });
   }
 
+  formatPhoneNumber = anyString => {
+    const onlyNumbers = anyString.replace(/[^\d]/g, '');
+  
+    return formatStringByPattern('(82) 99999-9999', onlyNumbers);
+  };
+
   render() {
     const {
       classes,
@@ -119,7 +126,7 @@ class SaveContactModal extends PureComponent {
               {...AddContactFormValidators.email}
             />
             <InputField
-              onChange={text => this.updateField({ phoneNumber: text })}
+              onChange={text => this.updateField({ phoneNumber: this.formatPhoneNumber(text) })}
               styles={styles.addContactField}
               name="phoneNumber"
               value={phoneNumber}

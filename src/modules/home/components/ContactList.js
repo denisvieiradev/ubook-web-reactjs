@@ -6,8 +6,22 @@ import Strings from "../../../assets/Strings";
 import ContactItem from "./ContactItem"
 import AddContactButton from "./AddContactButton"
 import ContactListHeader from "./ContactListHeader"
+import { connect } from "react-redux"; 
 
 class ContactList extends PureComponent {
+
+  state = {
+    lastContactWasSaved: {}
+  }
+
+  componentWillReceiveProps(props) {
+    const { contactWasSaved } = props
+    if (contactWasSaved) {
+      this.setState({
+        lastContactWasSaved: contactWasSaved
+      })
+    }
+  }
 
   render() {
     const {
@@ -29,6 +43,7 @@ class ContactList extends PureComponent {
                   key={index}
                   onClickRemove={() => onClickRemoveItemList(item)}
                   onClickEdit={() => onClickEditItemList(item)}
+                  lastContactWasSaved={this.state.lastContactWasSaved}
                 />
               ))}
             </div>
@@ -81,4 +96,12 @@ const styles = {
 };
 
 
-export default injectSheet(styles)(ContactList);
+
+const mapStateToProps = state => ({
+  contactWasSaved: state.home.contactWasSaved
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(injectSheet(styles)(ContactList));

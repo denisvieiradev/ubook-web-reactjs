@@ -43,7 +43,7 @@ class SearchField extends PureComponent {
   }
 
   onChangeToSearch(text) {
-    const { baseContactsList } = this.state;
+    // const { baseContactsList } = this.state;
     // this.props.filterContactsOnHome(baseContactsList, text);
   }
 
