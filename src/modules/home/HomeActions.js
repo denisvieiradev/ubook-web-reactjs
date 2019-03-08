@@ -5,7 +5,7 @@ import {
   IS_SAVING_CONTACT,
   CONTACT_WAS_SAVED,
   IS_REMOVING_CONTACT,
-  CONTACT_WAS_REMOVED
+  CONTACT_WAS_REMOVED,
 } from "./HomeTypes";
 
 export const updateContacts = contacts => {
@@ -30,7 +30,7 @@ export const isRemovingContact = isRemoving => ({
   payload: isRemoving
 });
 
-export const contactWasAdded = contact => ({
+export const contactWasSaved = contact => ({
   type: CONTACT_WAS_SAVED,
   payload: contact
 });
@@ -62,7 +62,7 @@ export const saveContact = (contact) => {
 
     const contactAdded = await new ContactsService().saveContact(contact);
 
-    dispatch(contactWasAdded(contactAdded));
+    dispatch(contactWasSaved(contactAdded));
     
     dispatch(isSavingContact(false));
   };
@@ -79,3 +79,35 @@ export const removeContact = (contact) => {
     dispatch(isRemovingContact(false));
   };
 };
+
+export const filterContactsOnHome = (baseContactsList, textSearched) => {
+  return async dispatch => {
+
+    const contactListFiltered = baseContactsList.filter(
+      contact =>
+        _textIsPresentOnName(
+          textSearched.toLowerCase(),
+          contact.name.toLowerCase()
+        ) ||
+        _textIsPresentOnName(
+          textSearched.toLowerCase(),
+          contact.email.toLowerCase()
+        ) ||
+        _textIsPresentOnName(
+          textSearched.toLowerCase(),
+          contact.phoneNumber.toLowerCase()
+        )
+    );
+
+    dispatch(updateContacts(contactListFiltered));
+  };
+};
+
+
+
+const _textIsPresentOnName = (textSearched, contactName) => {
+  if (textSearched === '')
+    return true
+
+  return contactName.includes(textSearched)
+}
