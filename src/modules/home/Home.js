@@ -7,6 +7,7 @@ import MainHeader from "../../components/MainHeader"
 import { ClipLoader } from "react-spinners";
 import Colors from "../../assets/Colors";
 import RemoveContactAlertModal from "./components/RemoveContactAlertModal"
+import SaveContactModal from "./components/SaveContactModal";
 
 class Home extends PureComponent {
   constructor(props) {
@@ -15,7 +16,9 @@ class Home extends PureComponent {
     this.state = {
       hasContacts: false,
       removeContactAlertModalIsOpen: false,
-      contactSelectedToRemove: {}
+      editContactModalIsOpen: false,
+      contactSelectedToRemove: null,
+      contactSelectedToEdit: null
     };
   }
 
@@ -32,7 +35,6 @@ class Home extends PureComponent {
   }
 
   showRemoveContactAlertModal(contactPressed) {
-    console.log("showRemoveContactAlertModal");
     this.setState({
       removeContactAlertModalIsOpen: true,
       contactSelectedToRemove: contactPressed
@@ -40,13 +42,23 @@ class Home extends PureComponent {
   }
 
   hideRemoveContactAlertModal() {
-    console.log("hideRemoveContactAlertModal");
     this.setState({ removeContactAlertModalIsOpen: false });
+  }
+
+  showEditContactModal(contactPressed) {
+    this.setState({
+      contactSelectedToEdit: contactPressed,
+      editContactModalIsOpen: true
+    });
+  }
+
+  hideEditContactModal() {
+    this.setState({ editContactModalIsOpen: false });
   }
 
   render() {
     const { isFetchingContacts, contacts, classes } = this.props;
-    const { contactSelectedToRemove } = this.state;
+    const { contactSelectedToRemove, contactSelectedToEdit } = this.state;
 
     return (
       <div>
@@ -54,7 +66,12 @@ class Home extends PureComponent {
 
         {isFetchingContacts ? (
           <div className={classes.spinnerContainerStyle}>
-            <ClipLoader sizeUnit={"px"} size={50} color={Colors.gray} loading />
+            <ClipLoader
+              sizeUnit={"px"}
+              size={50}
+              color={Colors.gray}
+              loading
+            />
           </div>
         ) : (
           <ContactList
@@ -64,7 +81,7 @@ class Home extends PureComponent {
               this.showRemoveContactAlertModal(contactPressed)
             }
             onClickEditItemList={contactPressed =>
-              this.showRemoveContactAlertModal(contactPressed)
+              this.showEditContactModal(contactPressed)
             }
           />
         )}
@@ -74,6 +91,12 @@ class Home extends PureComponent {
           isOpen={this.state.removeContactAlertModalIsOpen}
           closeModal={() => this.hideRemoveContactAlertModal()}
           contactSelectedToRemove={contactSelectedToRemove}
+        />
+
+        <SaveContactModal
+          isOpen={this.state.editContactModalIsOpen}
+          closeModal={() => this.hideEditContactModal()}
+          contact={contactSelectedToEdit}
         />
       </div>
     );

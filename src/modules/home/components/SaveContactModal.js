@@ -10,37 +10,66 @@ import InputField from "../../../components/InputField";
 import { ValidatorForm } from "react-form-validator-core";
 import { AddContactFormValidators } from "../HomeTypes";
 
-class AddContactModal extends PureComponent {
+class SaveContactModal extends PureComponent {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      submitIsDisabled: true,
+      name: "",
+      email: "",
+      phoneNumber: ""
+    };
+  }
+  
   state = {
     submitIsDisabled: true,
+    id: null,
     name: "",
     email: "",
-    phoneNumber: "",
-  }
+    phoneNumber: ""
+  };
 
-  componentWillReceiveProps(props){
-    if (props.contactWasAdded) {
-      this.props.closeModal()
-      this.props.contactWasAddedAction(null);
-      this.updateField({ name: "", email: "", phoneNumber: ""})
+  componentWillReceiveProps(props) {
+    const {
+      contactWasAdded,
+      contact,
+      closeModal,
+      contactWasAddedAction
+    } = props;
+    if (contactWasAdded) {
+      closeModal();
+      contactWasAddedAction(null);
+      this.updateField({ name: "", email: "", phoneNumber: "" });
+    }
+
+    if (contact) {
+      this.setState({
+        id: contact.id,
+        name: contact.name,
+        email: contact.email,
+        phoneNumber: contact.phoneNumber,
+        submitIsDisabled: false
+      });
     }
   }
 
   onClickSubmit() {
-    const { name, email, phoneNumber} = this.state
+    const { id, name, email, phoneNumber } = this.state;
     const contact = {
+      id,
       name,
       email,
       phoneNumber
     };
 
-    this.props.createContact(contact);
+    this.props.saveContact(contact);
   }
 
   updateField(fieldObject) {
     this.setState(fieldObject, async () => {
-      if(this.form){
+      if (this.form) {
         const formIsValid = await this.form.isFormValid();
 
         this.setState({
@@ -51,15 +80,19 @@ class AddContactModal extends PureComponent {
   }
 
   render() {
-    const { classes, isOpen, closeModal, isCreatingContact } = this.props;
+    const {
+      classes,
+      isOpen,
+      closeModal,
+      isCreatingContact
+    } = this.props;
     const { name, email, phoneNumber, submitIsDisabled } = this.state;
     return (
-      <Modal
-        isOpen={isOpen}
-        style={styles.customStyles}
-      >
+      <Modal isOpen={isOpen} style={styles.customStyles}>
         <header className={classes.addContactHeader}>
-          <label className={classes.mainTitle}>{Strings.createANewContact}</label>
+          <label className={classes.mainTitle}>
+            {Strings.createANewContact}
+          </label>
         </header>
         <ValidatorForm
           ref={node => (this.form = node)}
@@ -165,16 +198,16 @@ const styles = {
 };
 
 const mapStateToProps = state => ({
-  isCreatingContact: state.home.isCreatingContact,
+  isSavingContact: state.home.isSavingContact,
   contactWasAdded: state.home.contactWasAdded
 });
 
 const mapDispatchToProps = {
-  createContact: HomeActions.createContact,
+  saveContact: HomeActions.saveContact,
   contactWasAddedAction: HomeActions.contactWasAdded
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(injectSheet(styles)(AddContactModal));
+)(injectSheet(styles)(SaveContactModal));

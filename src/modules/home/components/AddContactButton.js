@@ -4,7 +4,7 @@ import Colors from "../../../assets/Colors";
 import Strings from "../../../assets/Strings";
 import Button from "../../../components/Button"
 import injectSheet from "react-jss";
-import AddContactModal from "./AddContactModal"
+import SaveContactModal from "./SaveContactModal"
 
 class AddContactButton extends PureComponent {
   
@@ -12,11 +12,11 @@ class AddContactButton extends PureComponent {
     modalIsOpen: false
   };
 
-  showAddContactModal() {
+  showSaveContactModal() {
     this.setState({ modalIsOpen: true })
   }
 
-  hideAddContactModal() {
+  hideSaveContactModal() {
     this.setState({ modalIsOpen: false })
   }
 
@@ -30,11 +30,11 @@ class AddContactButton extends PureComponent {
           color={Colors.biglightGreen}
           text={Strings.createContact}
           type="button"
-          onClick={() => this.showAddContactModal()}
+          onClick={() => this.showSaveContactModal()}
         />
-        <AddContactModal
+        <SaveContactModal
           isOpen={this.state.modalIsOpen}
-          closeModal={() => this.hideAddContactModal()}
+          closeModal={() => this.hideSaveContactModal()}
         />
       </div>
     );
