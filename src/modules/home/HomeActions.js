@@ -99,8 +99,6 @@ export const filterContactsOnHome = (baseContactsList, textSearched) => {
         )
     );
 
-    console.log("contactListFiltered", contactListFiltered);
-
     dispatch(updateContacts(contactListFiltered));
   };
 };

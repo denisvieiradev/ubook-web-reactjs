@@ -21,7 +21,6 @@ class SearchField extends PureComponent {
 
     if (props.contactWasSaved || props.contactWasRemoved) {
       this.cleanSearchFieldInputAndBaseList()
-      this.props.loadContacts()
       this.setState({
         baseContactsList: props.contacts
       })
@@ -45,7 +44,7 @@ class SearchField extends PureComponent {
 
   onChangeToSearch(text) {
     const { baseContactsList } = this.state;
-    this.props.filterContactsOnHome(baseContactsList, text);
+    // this.props.filterContactsOnHome(baseContactsList, text);
   }
 
   render() {
