@@ -2,8 +2,8 @@ import ContactsService from "../../services/contacts/ContactsService";
 import {
   UPDATE_CONTACTS,
   IS_FETCHING_CONTACTS,
-  IS_CREATING_CONTACT,
-  CONTACT_WAS_ADDED,
+  IS_SAVING_CONTACT,
+  CONTACT_WAS_SAVED,
   IS_REMOVING_CONTACT,
   CONTACT_WAS_REMOVED
 } from "./HomeTypes";
@@ -20,9 +20,9 @@ export const isFetchingContacts = isFetching => ({
   payload: isFetching
 });
 
-export const isCreatingContact = isCreating => ({
-  type: IS_CREATING_CONTACT,
-  payload: isCreating
+export const isSavingContact = isSaving => ({
+  type: IS_SAVING_CONTACT,
+  payload: isSaving
 });
 
 export const isRemovingContact = isRemoving => ({
@@ -31,7 +31,7 @@ export const isRemovingContact = isRemoving => ({
 });
 
 export const contactWasAdded = contact => ({
-  type: CONTACT_WAS_ADDED,
+  type: CONTACT_WAS_SAVED,
   payload: contact
 });
 
@@ -56,15 +56,15 @@ export const loadContacts = () => {
   };
 };
 
-export const createContact = (contact) => {
+export const saveContact = (contact) => {
   return async dispatch => {
-    dispatch(isCreatingContact(true));
+    dispatch(isSavingContact(true));
 
-    const contactAdded = await new ContactsService().createContact(contact);
+    const contactAdded = await new ContactsService().saveContact(contact);
 
     dispatch(contactWasAdded(contactAdded));
     
-    dispatch(isCreatingContact(false));
+    dispatch(isSavingContact(false));
   };
 };
 
