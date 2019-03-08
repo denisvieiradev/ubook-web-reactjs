@@ -33,14 +33,15 @@ class SaveContactModal extends PureComponent {
 
   componentWillReceiveProps(props) {
     const {
-      contactWasAdded,
+      contactWasSaved,
       contact,
       closeModal,
-      contactWasAddedAction
+      contactWasSavedAction
     } = props;
-    if (contactWasAdded) {
+    
+    if (contactWasSaved) {
       closeModal();
-      contactWasAddedAction(null);
+      contactWasSavedAction(null);
       this.updateField({ name: "", email: "", phoneNumber: "" });
     }
 
@@ -199,12 +200,12 @@ const styles = {
 
 const mapStateToProps = state => ({
   isSavingContact: state.home.isSavingContact,
-  contactWasAdded: state.home.contactWasAdded
+  contactWasSaved: state.home.contactWasSaved
 });
 
 const mapDispatchToProps = {
   saveContact: HomeActions.saveContact,
-  contactWasAddedAction: HomeActions.contactWasAdded
+  contactWasSavedAction: HomeActions.contactWasSaved
 };
 
 export default connect(

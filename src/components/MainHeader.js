@@ -8,13 +8,9 @@ const MainHeader = ({ classes, hasContacts }) => (
   <div className={classes.mainHeaderContainer}>
     <img className={classes.logoStyle} src={ubookLogo} alt="Ubook" />
     <div className={classes.addContactContainer}>
-      {
-        hasContacts ? <AddContactButton styles={styles.addContactBtnStyle} /> : null 
-      }
+      {hasContacts && <AddContactButton styles={styles.addContactBtnStyle} />}
     </div>
-    <SearchField 
-      style={styles.searchFieldStyle} 
-      onChange={() => console.log("teste")}/>
+    <SearchField style={styles.searchFieldStyle} />
   </div>
 );
 

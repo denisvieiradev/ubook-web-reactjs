@@ -12,7 +12,7 @@ export const INITIAL_STATE = {
   isFetchingContacts: false,
   isSavingContact: false,
   isRemovingContact: false,
-  contactWasAdded: null,
+  contactWasSaved: null,
   contactWasRemoved: null
 };
 
@@ -49,13 +49,13 @@ const contactWasSavedAction = (state, payload) => {
 
     return {
       ...state,
-      contactWasAdded: payload,
+      contactWasSaved: payload,
       contacts: newContactsAfterSaved
     };
   } else {
     return {
       ...state,
-      contactWasAdded: payload,
+      contactWasSaved: payload,
     }
   }
 }

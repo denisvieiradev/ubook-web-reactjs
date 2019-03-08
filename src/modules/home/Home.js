@@ -55,23 +55,21 @@ class Home extends PureComponent {
   hideEditContactModal() {
     this.setState({ editContactModalIsOpen: false });
   }
-
+  
   render() {
     const { isFetchingContacts, contacts, classes } = this.props;
     const { contactSelectedToRemove, contactSelectedToEdit } = this.state;
 
     return (
       <div>
-        <MainHeader hasContacts={this.state.hasContacts} />
+        <MainHeader
+          hasContacts={this.state.hasContacts}
+          onSearch={textToFilter => this.filterList(textToFilter)}
+        />
 
         {isFetchingContacts ? (
           <div className={classes.spinnerContainerStyle}>
-            <ClipLoader
-              sizeUnit={"px"}
-              size={50}
-              color={Colors.gray}
-              loading
-            />
+            <ClipLoader sizeUnit={"px"} size={50} color={Colors.gray} loading />
           </div>
         ) : (
           <ContactList

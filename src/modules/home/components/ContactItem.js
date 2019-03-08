@@ -52,14 +52,14 @@ const styles = {
   itemStyle: {
     flex: 1,
     display: "flex",
-    color: Colors.gray,
+    color: Colors.bigGray,
     alignItems: "center",
     "&:first-child": {
       flex: 0.2,
       justifyContent: "center"
     },
     "&:last-child": {
-      flex: 0.2,
+      flex: 0.2
     }
   },
   actionIconStyle: {
