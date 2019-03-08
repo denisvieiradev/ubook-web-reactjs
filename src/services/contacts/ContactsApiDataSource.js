@@ -35,6 +35,9 @@ class ContactsApiDataSource extends ApiDataSource {
       contact,
       newPostKey
     );
+
+    const contactUpdatedWithId = { ...contact, id: newPostKey}
+      
     var updates = {};
 
     updates["/contacts/" + newPostKey] = newContact;
@@ -45,7 +48,7 @@ class ContactsApiDataSource extends ApiDataSource {
         .ref()
         .update(updates)
         .then(() => {
-          resolve(contact);
+          resolve(contactUpdatedWithId);
         })
         .catch(error => {
           reject(error);
