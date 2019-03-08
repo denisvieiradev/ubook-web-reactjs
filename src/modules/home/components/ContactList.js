@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 class ContactList extends PureComponent {
 
   state = {
-    lastContactWasSaved: {}
+    lastContactWasSaved: null
   }
 
   componentWillReceiveProps(props) {
@@ -19,6 +19,12 @@ class ContactList extends PureComponent {
     if (contactWasSaved) {
       this.setState({
         lastContactWasSaved: contactWasSaved
+      }, () => {
+        setTimeout(() => { 
+          this.setState({
+            lastContactWasSaved: null
+          })
+        }, 2000);
       })
     }
   }
