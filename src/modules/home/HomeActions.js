@@ -3,7 +3,9 @@ import {
   UPDATE_CONTACTS,
   IS_FETCHING_CONTACTS,
   IS_CREATING_CONTACT,
-  CONTACT_WAS_ADDED
+  CONTACT_WAS_ADDED,
+  IS_REMOVING_CONTACT,
+  CONTACT_WAS_REMOVED
 } from "./HomeTypes";
 
 export const updateContacts = contacts => {
@@ -23,23 +25,31 @@ export const isCreatingContact = isCreating => ({
   payload: isCreating
 });
 
+export const isRemovingContact = isRemoving => ({
+  type: IS_REMOVING_CONTACT,
+  payload: isRemoving
+});
+
 export const contactWasAdded = contact => ({
   type: CONTACT_WAS_ADDED,
   payload: contact
 });
 
-export const cleanContactWasAdded = () => {
-  return async dispatch => {
-    dispatch(contactWasAdded(null));
-  };
-};
+export const contactWasRemoved = contact => ({
+  type: CONTACT_WAS_REMOVED,
+  payload: contact
+});
+
+export const cleanContactWasRemoved = contact => ({
+  type: CONTACT_WAS_REMOVED,
+  payload: contact
+});
 
 export const loadContacts = () => {
   return async dispatch => {
     dispatch(isFetchingContacts(true));
 
     const contacts = await new ContactsService().getContacts();
-    console.log(contacts)
 
     dispatch(updateContacts(contacts));
     dispatch(isFetchingContacts(false));
@@ -55,5 +65,17 @@ export const createContact = (contact) => {
     dispatch(contactWasAdded(contactAdded));
     
     dispatch(isCreatingContact(false));
+  };
+};
+
+export const removeContact = (contact) => {
+  return async dispatch => {
+    dispatch(isRemovingContact(true));
+
+    const contactRemoved = await new ContactsService().removeContact(contact);
+
+    dispatch(contactWasRemoved(contactRemoved));
+    
+    dispatch(isRemovingContact(false));
   };
 };

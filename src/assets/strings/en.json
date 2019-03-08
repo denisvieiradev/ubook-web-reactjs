@@ -6,6 +6,7 @@
   "createContact" : "+ Create Contact",
   "contacts" : "Contacts",
   "createANewContact" : "Create New Contact",
+  "removeContact" : "Remove Contact",
   "name": "Name",
   "email": "E-mail",
   "phoneNumber": "Phone Number",
@@ -13,5 +14,7 @@
   "cancel": "Cancel",
   "edit": "Edit",
   "remove": "Remove",
-  "noneContactCreated": "No contacts have been created yet"
+  "delete": "Delete",
+  "noneContactCreated": "No contacts have been created yet",
+  "removeContactConfirmation": "Do you really want to delete the contact?"
 }

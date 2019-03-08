@@ -5,15 +5,28 @@ import { editIcon, deleteIcon } from "../../../assets/Images";
 import injectSheet from "react-jss";
 import InitialLetterBall from "./InitialLetterBall";
 
-const ContactItem = ({ classes, contact }) => (
+const ContactItem = ({ classes, contact, onClickRemove, onClickEdit }) => (
   <div className={classes.itemContainer}>
-    <div className={classes.itemStyle}> <InitialLetterBall contactName={contact.name}/> </div>
+    <div className={classes.itemStyle}>
+      {" "}
+      <InitialLetterBall contactName={contact.name} />{" "}
+    </div>
     <label className={classes.itemStyle}>{contact.name}</label>
     <label className={classes.itemStyle}>{contact.email}</label>
     <label className={classes.itemStyle}>{contact.phoneNumber}</label>
     <div className={classes.itemStyle}>
-      <img className={classes.actionIconStyle} src={editIcon} alt={Strings.edit} />
-      <img className={classes.actionIconStyle} src={deleteIcon} alt={Strings.remove} />
+      <img
+        onClick={onClickEdit}
+        className={classes.actionIconStyle}
+        src={editIcon}
+        alt={Strings.edit}
+      />
+      <img
+        onClick={onClickRemove}
+        className={classes.actionIconStyle}
+        src={deleteIcon}
+        alt={Strings.remove}
+      />
     </div>
   </div>
 );

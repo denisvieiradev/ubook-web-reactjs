@@ -14,6 +14,10 @@ class ContactsService extends ServiceDataSource {
   createContact(contact) {
     return this.datasource().createContact(contact);
   }
+
+  removeContact(contact) {
+    return this.datasource().removeContact(contact);
+  }
   
 }
 

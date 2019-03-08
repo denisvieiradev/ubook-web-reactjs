@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import * as HomeActions from "../HomeActions";
 import Colors from "../../../assets/Colors";
 import Strings from "../../../assets/Strings";
 import Button from "../../../components/Button"
@@ -12,12 +11,6 @@ class AddContactButton extends PureComponent {
   state = {
     modalIsOpen: false
   };
-
-  componentWillReceiveProps(props) {
-    if (props.contactWasAdded){
-      this.hideAddContactModal()
-    }
-  }
 
   showAddContactModal() {
     this.setState({ modalIsOpen: true })

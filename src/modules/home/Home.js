@@ -6,43 +6,75 @@ import injectSheet from "react-jss";
 import MainHeader from "../../components/MainHeader"
 import { ClipLoader } from "react-spinners";
 import Colors from "../../assets/Colors";
-
+import RemoveContactAlertModal from "./components/RemoveContactAlertModal"
 
 class Home extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  state = {
-    hasContacts: false,
-  };
+    this.state = {
+      hasContacts: false,
+      removeContactAlertModalIsOpen: false,
+      contactSelectedToRemove: {}
+    };
+  }
 
   componentWillMount() {
     this.props.loadContacts();
   }
 
-  componentWillReceiveProps({contacts}) { 
-    if (contacts && contacts.length > 0) {
-      this.setState({ hasContacts: true})
+  componentWillReceiveProps(props) {
+    if (props.contacts && props.contacts.length > 0) {
+      this.setState({ hasContacts: true });
     } else {
-      this.setState({ hasContacts: false })
+      this.setState({ hasContacts: false });
     }
+  }
+
+  showRemoveContactAlertModal(contactPressed) {
+    console.log("showRemoveContactAlertModal");
+    this.setState({
+      removeContactAlertModalIsOpen: true,
+      contactSelectedToRemove: contactPressed
+    });
+  }
+
+  hideRemoveContactAlertModal() {
+    console.log("hideRemoveContactAlertModal");
+    this.setState({ removeContactAlertModalIsOpen: false });
   }
 
   render() {
     const { isFetchingContacts, contacts, classes } = this.props;
+    const { contactSelectedToRemove } = this.state;
 
     return (
       <div>
-        <MainHeader hasContacts={this.state.hasContacts}/>
-        
+        <MainHeader hasContacts={this.state.hasContacts} />
+
         {isFetchingContacts ? (
           <div className={classes.spinnerContainerStyle}>
             <ClipLoader sizeUnit={"px"} size={50} color={Colors.gray} loading />
           </div>
         ) : (
-          <ContactList 
+          <ContactList
             styles={styles.contactListStyle}
             contacts={contacts}
+            onClickRemoveItemList={contactPressed =>
+              this.showRemoveContactAlertModal(contactPressed)
+            }
+            onClickEditItemList={contactPressed =>
+              this.showRemoveContactAlertModal(contactPressed)
+            }
           />
         )}
+
+        <RemoveContactAlertModal
+          ref={this.alertModal}
+          isOpen={this.state.removeContactAlertModalIsOpen}
+          closeModal={() => this.hideRemoveContactAlertModal()}
+          contactSelectedToRemove={contactSelectedToRemove}
+        />
       </div>
     );
   }
@@ -72,7 +104,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  loadContacts: HomeActions.loadContacts
+  loadContacts: HomeActions.loadContacts,
+  contactWasRemovedAction: HomeActions.contactWasRemoved
 };
 
 export default connect(

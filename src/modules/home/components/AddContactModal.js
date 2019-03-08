@@ -13,7 +13,6 @@ import { AddContactFormValidators } from "../HomeTypes";
 class AddContactModal extends PureComponent {
 
   state = {
-    modalIsOpen: true,
     submitIsDisabled: true,
     name: "",
     email: "",
@@ -22,6 +21,8 @@ class AddContactModal extends PureComponent {
 
   componentWillReceiveProps(props){
     if (props.contactWasAdded) {
+      this.props.closeModal()
+      this.props.contactWasAddedAction(null);
       this.updateField({ name: "", email: "", phoneNumber: ""})
     }
   }
@@ -55,7 +56,6 @@ class AddContactModal extends PureComponent {
     return (
       <Modal
         isOpen={isOpen}
-        onRequestClose={() => closeModal()}
         style={styles.customStyles}
       >
         <header className={classes.addContactHeader}>
@@ -150,8 +150,8 @@ const styles = {
   customStyles: {
     content: {
       display: "flex",
-      width: "30%",
-      height: "55%",
+      width: "30.857em",
+      height: "27.429em",
       flexDirection: "column",
       borderRadius: "1em",
       padding: 0,
@@ -159,11 +159,10 @@ const styles = {
       top: "25%",
       left: "35%",
       marginTop: "-50px",
-      marginLeft: "-50px",
+      marginLeft: "-50px"
     }
   }
 };
-
 
 const mapStateToProps = state => ({
   isCreatingContact: state.home.isCreatingContact,
@@ -171,7 +170,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  createContact: HomeActions.createContact
+  createContact: HomeActions.createContact,
+  contactWasAddedAction: HomeActions.contactWasAdded
 };
 
 export default connect(

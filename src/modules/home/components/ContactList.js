@@ -10,31 +10,40 @@ import ContactListHeader from "./ContactListHeader"
 class ContactList extends PureComponent {
 
   render() {
-    const { contacts, classes } = this.props;
+    const {
+      contacts,
+      classes,
+      onClickRemoveItemList,
+      onClickEditItemList
+    } = this.props;
 
     return (
       <div className={classes.mainContainerStyle}>
-        
         {contacts && contacts.length !== 0 ? (
           <div>
             <ContactListHeader />
             <div className={classes.contactsContainer}>
               {contacts.map((item, index) => (
-                <ContactItem contact={item} key={index}/>
+                <ContactItem
+                  contact={item}
+                  key={index}
+                  onClickRemove={() => onClickRemoveItemList(item)}
+                  onClickEdit={() => onClickEditItemList(item)}
+                />
               ))}
             </div>
           </div>
         ) : (
-            <div className={classes.noneContactContainer}>
+          <div className={classes.noneContactContainer}>
             <img
               className={classes.emptyBookImgStyle}
               src={emptyBookImg}
               alt={Strings.noneContactCreated}
             />
-            <label className={classes.noneContactLabel}>{Strings.noneContactCreated}</label>
-            <AddContactButton 
-              styles={styles.addContactButtonStyle}
-            />
+            <label className={classes.noneContactLabel}>
+              {Strings.noneContactCreated}
+            </label>
+            <AddContactButton styles={styles.addContactButtonStyle} />
           </div>
         )}
       </div>

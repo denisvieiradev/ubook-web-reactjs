@@ -29,13 +29,13 @@ class ContactsApiDataSource extends ApiDataSource {
       .ref()
       .child("contacts")
       .push().key;
-    const newDog = new ContactsConverter().mapperEntityToRequest(
+    const newContact = new ContactsConverter().mapperEntityToRequest(
       contact,
       newPostKey
     );
     var updates = {};
 
-    updates["/contacts/" + newPostKey] = newDog;
+    updates["/contacts/" + newPostKey] = newContact;
 
     return new Promise((resolve, reject) => {
       firebase
@@ -49,6 +49,21 @@ class ContactsApiDataSource extends ApiDataSource {
           reject(error);
         });
     });
+  }
+
+  removeContact(contact) {
+    return new Promise((resolve, reject) => {
+      const contactKey = contact.id
+
+      var removeContactAction = {};
+      removeContactAction["contacts/" + contactKey] = null;
+
+      firebase.database().ref().update(removeContactAction).then(() => {
+        resolve(contact);
+      }).catch((error) => {
+        reject(error)
+      })
+    })
   }
 }
 

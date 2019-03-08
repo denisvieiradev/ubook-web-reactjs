@@ -4,8 +4,9 @@
   "requiredError": "O campo não pode estar vazio",
   "emailRequiredError": "O Email não é válido",
   "createContact": "+ Criar Contato",
-  "contacts" : "Contatos",
-  "createANewContact" : "Criar Novo Contato",
+  "contacts": "Contatos",
+  "createANewContact": "Criar Novo Contato",
+  "removeContact": "Excluir Contato",
   "name": "Nome",
   "email": "E-mail",
   "phoneNumber": "Telefone",
@@ -13,5 +14,7 @@
   "cancel": "Cancelar",
   "edit": "Editar",
   "remove": "Remover",
-  "noneContactCreated": "Nenhum contato foi criado ainda"
+  "delete": "Excluir",
+  "noneContactCreated": "Nenhum contato foi criado ainda",
+  "removeContactConfirmation": "Deseja realmente excluir o contato?"
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import Colors from "../assets/Colors";
-import Strings from "../assets/Strings";
 import injectSheet from "react-jss";
 import { ValidatorComponent } from "react-form-validator-core";
 
