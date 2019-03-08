@@ -2,6 +2,7 @@ import contactsFakeResponse from "./contacts.json";
 import ContactsConverter from "./ContactsConverter";
 
 class FakeContactsApiDataSource {
+
   getContacts() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -17,14 +18,24 @@ class FakeContactsApiDataSource {
   createContact(contact) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const contactAdded = new ContactsConverter().mapperEntityToRequest(
-          contact
-        );
+        new ContactsConverter().mapperEntityToRequest(contact);
 
         resolve(contact);
       }, 2000);
     });
   }
+
+  removeContact(contact) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        new ContactsConverter().mapperEntityToRequest(contact);
+
+        resolve(contact);
+      }, 2000);
+    });
+  }
+
+
 }
 
 export default FakeContactsApiDataSource;

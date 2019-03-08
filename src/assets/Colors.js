@@ -6,7 +6,6 @@ export default {
   blue: "#4990E2",
   bigLightBlue: "#c0c3d2",
   red: "#D0021B",
-  pink: "#BD10E0",
   green: "#7CBB37",
   yellow: "#F5A623",
   lightGray: "#e4e7f4",

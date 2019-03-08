@@ -5,6 +5,8 @@ export const IS_FETCHING_CONTACTS = "IS_FETCHING_CONTACTS";
 export const IS_CREATING_CONTACT = "IS_CREATING_CONTACT";
 export const CONTACT_WAS_ADDED = "CONTACT_ADDED";
 export const CLEAN_CONTACT_WAS_ADDED = "CLEAN_CONTACT_WAS_ADDED";
+export const IS_REMOVING_CONTACT = "IS_REMOVING_CONTACT";
+export const CONTACT_WAS_REMOVED = "CONTACT_WAS_REMOVED";
 
 export const AddContactFormValidators = {
   name: {
